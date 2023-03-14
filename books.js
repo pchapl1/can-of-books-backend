@@ -13,7 +13,6 @@ mongoose.connect(process.env.DB_URL);
 const PORT = process.env.PORT || 3001;
 
 async function  getBooks(req, res, next){
-
     try {
       let results = await Book.find({})
       res.status(200).send(results)
@@ -22,4 +21,14 @@ async function  getBooks(req, res, next){
     }
 }
 
-module.exports = getBooks;
+async function createBook(req, res, next){
+    try {
+        console.log('in createBook')
+        console.log(req.params)
+    } catch(err){
+        next(err)
+    }
+}
+
+module.exports = {
+    getBooks : getBooks};
