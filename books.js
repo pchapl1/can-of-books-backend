@@ -40,10 +40,10 @@ async function createBook(req, res, next){
 
 async function deleteBook(req, res, next){
     try {
-        console.log('in delete book')
-        console.log(req.params.id)
         let id = req.params.id
-        res.status(200).send(id)
+        await Book.findByIdAndDelete(id)
+
+        res.status(200).send("Book Deleted")
     } catch(err){
         next(err)
     }

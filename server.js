@@ -5,8 +5,9 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bookMethods = require('./books');
-const getBooks = bookMethods.getBooks
-const createBook = bookMethods.createBook
+const getBooks = bookMethods.getBooks;
+const createBook = bookMethods.createBook;
+const deleteBook = bookMethods.deleteBook;
 
 // add validation to confirm we are wired up to our mongo DB
 const db = mongoose.connection;
@@ -32,7 +33,7 @@ app.get('/test', (request, response) => {
 
 app.get('/books', getBooks)
 app.post('/books/post-book', createBook)
-// app.delete('/books/delete/:id', deleteBook)
+app.delete('/books/delete/:id', deleteBook)
 
 
 // handle errors
