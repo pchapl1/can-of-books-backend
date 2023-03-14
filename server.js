@@ -17,9 +17,9 @@ db.once('open', function () {
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
-// we must have this to recieve JSON data from a request
-app.use(express.json())
+
 
 mongoose.connect(process.env.DB_URL);
 const PORT = process.env.PORT || 3002;
@@ -31,5 +31,13 @@ app.get('/test', (request, response) => {
 })
 
 app.get('/books', getBooks)
+app.post('/books/post-book', createBook)
+// app.delete('/books/delete/:id', deleteBook)
+
+
+// handle errors
+app.get('*', (req, res, next)=>{
+
+})
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
