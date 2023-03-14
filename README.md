@@ -72,12 +72,22 @@ Javascript, React, Mongoose, MongoDB, Bootstrap, Html, CSS
 Time Estimates
 For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
-Name of feature: get all books
+## Name of feature: get all books
 
-Estimate of time needed to complete: 1 hour
+### Estimate of time needed to complete: 1 hour
 
-Start time: 1:30
+### Start time: 1:30
 
-Finish time: 2:30
+### Finish time: 2:30
 
-Actual time needed to complete: 1 hour
+### Actual time needed to complete: 1 hour
+
+## Name of feature: create a book
+
+### Estimate of time needed to complete: 1.5 hours
+
+### Start time: 12:30
+
+### Finish time: 2:30
+
+### Actual time needed to complete: 

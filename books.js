@@ -8,27 +8,50 @@ const Book = require('./models/book');
 const axios = require('axios');
 const app = express();
 app.use(cors());
+// we must have this to recieve JSON data from a request
 
 mongoose.connect(process.env.DB_URL);
 const PORT = process.env.PORT || 3001;
 
-async function  getBooks(req, res, next){
+async function getBooks(req, res, next){
     try {
-      let results = await Book.find({})
-      res.status(200).send(results)
+      let results = await Book.find({});
+      res.status(200).send(results);
     } catch (err) {
         next(err)
-    }
-}
+    };
+};
 
 async function createBook(req, res, next){
     try {
-        console.log('in createBook')
-        console.log(req.params)
+        let bookToCreate = {
+            title: req.body.title,
+            description: req.body.description,
+            status: req.body.status
+        };
+
+        let newBook = await Book.create(bookToCreate);
+        res.status(200).send(newBook);
+    } catch(err){
+        console.error(error);
+        response.status(500).send('Error Creating Book');
+    };
+};
+
+async function deleteBook(req, res, next){
+    try {
+        console.log('in delete book')
+        console.log(req.params.id)
+        let id = req.params.id
+        res.status(200).send(id)
     } catch(err){
         next(err)
     }
 }
 
 module.exports = {
-    getBooks : getBooks};
+    getBooks : getBooks,
+    createBook : createBook,
+    deleteBook : deleteBook
+
+};
