@@ -88,6 +88,16 @@ For each of the lab features, make an estimate of the time it will take you to c
 
 ### Start time: 12:30
 
-### Finish time: 2:30
+### Finish time: 1:30
 
-### Actual time needed to complete: 
+### Actual time needed to complete: 1 hour
+
+## Name of feature: delete a book
+
+### Estimate of time needed to complete: 30 minutes
+
+### Start time: 2:30
+
+### Finish time: 2:45
+
+### Actual time needed to complete: 15 minutes
