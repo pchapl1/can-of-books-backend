@@ -38,6 +38,20 @@ async function createBook(req, res, next){
     };
 };
 
+async function updateBook(req, res, next){
+    try {
+        // get id from params
+        let id = req.params.id
+        // get data to be updated from body
+        let bookToUpdate = req.body
+        // pass the id, the info from the body and pass it an options object that lets the db know to just overwrite the existing object
+        let updatedBook = await Book.findByIdAndUpdate(id, bookToUpdate, {new: true, overwrite: true})
+        // send a successful status and the updated book to the client
+        res.status(200).send(updatedBook)
+    } catch(err){
+        next(err)
+    }
+}
 async function deleteBook(req, res, next){
     try {
         let id = req.params.id
@@ -52,6 +66,7 @@ async function deleteBook(req, res, next){
 module.exports = {
     getBooks : getBooks,
     createBook : createBook,
+    updateBook : updateBook,
     deleteBook : deleteBook
 
 };

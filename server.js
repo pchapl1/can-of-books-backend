@@ -8,6 +8,7 @@ const bookMethods = require('./books');
 const getBooks = bookMethods.getBooks;
 const createBook = bookMethods.createBook;
 const deleteBook = bookMethods.deleteBook;
+const updateBook = bookMethods.updateBook;
 
 // add validation to confirm we are wired up to our mongo DB
 const db = mongoose.connection;
@@ -33,6 +34,7 @@ app.get('/test', (request, response) => {
 
 app.get('/books', getBooks)
 app.post('/books/post-book', createBook)
+app.put('/books/update/:id', updateBook)
 app.delete('/books/delete/:id', deleteBook)
 
 
